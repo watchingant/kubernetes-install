@@ -2,13 +2,13 @@
 
 ## Components
 
-- Containerd: 1.7.20
+- Containerd: 2.0.9
 - Kubeadm
-- Kubernetes: 1.30.3
+- Kubernetes: 1.35
 - Calico
 - MetalLB
-- Runc: 1.1.13
-- CNI plugins: 1.5.1
+- Runc: 1.4.3
+- CNI plugins: 1.9.1
 
 ## Steps
 
@@ -41,7 +41,7 @@ free -h
 ### Installing a container runtime (containerd)
 
 ```sh
-export CONTAINERD_VER="1.7.20"
+export CONTAINERD_VER="2.0.9"
 
 curl -L https://github.com/containerd/containerd/releases/download/v$CONTAINERD_VER/containerd-$CONTAINERD_VER-linux-amd64.tar.gz -o containerd-$CONTAINERD_VER-linux-amd64.tar.gz
 sudo tar Cxzvf /usr/local containerd-$CONTAINERD_VER-linux-amd64.tar.gz
@@ -53,7 +53,7 @@ sudo systemctl enable --now containerd
 #### Installing runc
 
 ```sh
-export RUNC_VER="1.1.13"
+export RUNC_VER="1.4.3"
 
 
 curl -L https://github.com/opencontainers/runc/releases/download/v$RUNC_VER/runc.amd64 -o runc.amd64
@@ -63,7 +63,7 @@ sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 #### Installing CNI plugins
 
 ```sh
-export PLUGINS_VER="1.5.1"
+export PLUGINS_VER="1.9.1"
 
 curl -L https://github.com/containernetworking/plugins/releases/download/v$PLUGINS_VER/cni-plugins-linux-amd64-v$PLUGINS_VER.tgz -o cni-plugins-linux-amd64-v$PLUGINS_VER.tgz
 sudo mkdir -p /opt/cni/bin
