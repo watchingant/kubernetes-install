@@ -2,16 +2,20 @@
 
 # Update DNS
 
-export HOST_NAME="control-plane-00"
+export HOST_NAME=$1
 
 sudo apt update && sudo apt -y upgrade
 sudo sed -i "s/ubuntu/$HOST_NAME/" /etc/hostname
 sudo sed -i "s/ubuntu/$HOST_NAME/" /etc/hosts
-sudo reboot
+sudo hostnamectl hostname $1
+#sudo reboot
 
-export CONTAINERD_VER="1.7.20"
-export RUNC_VER="1.1.13"
-export PLUGINS_VER="1.5.1"
+#export CONTAINERD_VER="1.7.20"
+#export RUNC_VER="1.1.13"
+#export PLUGINS_VER="1.5.1"
+export CONTAINERD_VER="2.0.9"
+export RUNC_VER="1.4.3"
+export PLUGINS_VER="1.9.1"
 
 # Disable Swap Memory
 
