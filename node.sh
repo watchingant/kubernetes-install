@@ -3,7 +3,7 @@
 # Update DNS
 
 export HOST_NAME=$1
-export K8S_VERSION=$2
+export K8S_VERSION="1.35"
 
 sudo apt update && sudo apt -y upgrade
 sudo sed -i "s/ubuntu/$HOST_NAME/" /etc/hostname
